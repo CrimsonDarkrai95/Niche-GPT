@@ -1,6 +1,6 @@
 """
 Niche GPT — RAG Chatbot
-Uses Groq (free Llama 3) + ChromaDB + Gradio 6
+Uses Groq (free Llama 3) + ChromaDB + Gradio 3
 """
 
 import os
@@ -13,13 +13,14 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.documents import Document
 
-# ── Load API key ──
-load_dotenv("groq_api.env")
+# ── Load API key — works both locally and on Railway ──
+load_dotenv("groq_api.env")  # local only, ignored on Railway
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
 DATA_FOLDER  = os.getenv("DATA_FOLDER", "./data")
+PORT         = int(os.getenv("PORT", 7860))  # Railway sets PORT automatically
 
 if not GROQ_API_KEY:
-    print("⚠️  GROQ_API_KEY not found. Check your groq_api.env file.")
+    print("⚠️  GROQ_API_KEY not found.")
 
 client = Groq(api_key=GROQ_API_KEY) if GROQ_API_KEY else None
 
@@ -33,7 +34,7 @@ def load_documents(folder: str) -> list:
 
     if not path.exists():
         path.mkdir(parents=True, exist_ok=True)
-        print(f"📁 data/ folder created. Add your .txt or .pdf files there.")
+        print(f"📁 data/ folder created.")
         return docs
 
     for filepath in sorted(path.iterdir()):
@@ -53,7 +54,7 @@ def load_documents(folder: str) -> list:
                 with pdfplumber.open(filepath) as pdf:
                     text = "\n".join(p.extract_text() or "" for p in pdf.pages)
             except ImportError:
-                print("⚠️  pdfplumber not installed. Run: pip install pdfplumber")
+                print("⚠️  pdfplumber not installed.")
             except Exception as e:
                 print(f"⚠️  Could not read {filepath.name}: {e}")
 
@@ -100,7 +101,7 @@ def generate_response(query: str, history: list) -> str:
     if not query.strip():
         return ""
     if not client:
-        return "❌ No GROQ_API_KEY found. Check your groq_api.env file."
+        return "❌ No GROQ_API_KEY found."
 
     context_text = ""
     sources = []
@@ -149,58 +150,29 @@ def generate_response(query: str, history: list) -> str:
 CSS = """
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;700&family=DM+Sans:wght@300;400;500&display=swap');
 
-/* Dark background only on outer containers */
-body, .gradio-container {
-    background: #0a0a0f !important;
-}
-
+body, .gradio-container { background: #0a0a0f !important; }
 footer, .built-with { display: none !important; }
 
-/* Chatbox */
 #chatbox {
     background: #111118 !important;
     border: 1px solid #1e1e2e !important;
     border-radius: 14px !important;
 }
 
-/* Chat bubbles */
-.message {
-    background: #1a1a2e !important;
-    border-radius: 12px !important;
-    padding: 12px 16px !important;
-    margin: 6px 0 !important;
-    color: #e8e8f0 !important;
-}
-.message p, .message span, .message li,
-.message code, .message pre,
-.bot, .bot p, .human, .human p {
-    color: #1a1a2e !important;
-}
-/* Override — actual message text should be dark on light bubble */
-.message.bot { background: #f0f0f5 !important; }
-.message.human { background: #e8e4ff !important; }
-.message.bot p, .message.bot span,
-.message.human p, .message.human span {
-    color: #111111 !important;
-}
+.message.bot { background: #f0f0f5 !important; border-radius: 12px !important; }
+.message.human { background: #e8e4ff !important; border-radius: 12px !important; }
+.message.bot p, .message.bot span { color: #111111 !important; }
+.message.human p, .message.human span { color: #111111 !important; }
 
-/* Send button */
 #send-btn {
     background: linear-gradient(135deg, #7c6af7, #4fd1c5) !important;
     border: none !important;
     border-radius: 10px !important;
     color: #ffffff !important;
-    font-family: 'Syne', sans-serif !important;
     font-weight: 700 !important;
-    font-size: 0.88rem !important;
 }
 #send-btn:hover { opacity: 0.85 !important; }
-
-/* Clear button */
-#clear-btn {
-    border-radius: 10px !important;
-    font-size: 0.85rem !important;
-}
+#clear-btn { border-radius: 10px !important; }
 
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-thumb { background: #1e1e2e; border-radius: 4px; }
@@ -225,7 +197,7 @@ with gr.Blocks(title="Niche GPT", css=CSS) as demo:
             Niche GPT
         </div>
         <div style="font-size:0.78rem; color:#5a5a70; margin-top:6px; letter-spacing:0.08em; text-transform:uppercase;">
-            Your Documents · Powered by Groq · Llama 3 8B
+            Your Documents · Powered by Groq · Llama 3.1 8B
         </div>
         <div style="width:60px; height:2px; background:linear-gradient(90deg,#7c6af7,#4fd1c5); margin:14px auto 20px; border-radius:2px;"></div>
         <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
@@ -233,7 +205,7 @@ with gr.Blocks(title="Niche GPT", css=CSS) as demo:
                 📚 <b style="color:#4fd1c5">{num_chunks}</b> chunks · <b style="color:#4fd1c5">{num_files}</b> file(s)
             </span>
             <span style="font-size:0.73rem; color:#5a5a70; background:#111118; border:1px solid #1e1e2e; border-radius:20px; padding:4px 13px;">
-                ⚡ Groq <b style="color:#4fd1c5">Llama 3 8B</b> · Free
+                ⚡ Groq <b style="color:#4fd1c5">Llama 3.1 8B</b> · Free
             </span>
             <span style="font-size:0.73rem; color:#5a5a70; background:#111118; border:1px solid #1e1e2e; border-radius:20px; padding:4px 13px;">
                 🔍 Embeddings: <b style="color:#4fd1c5">MiniLM-L6</b>
@@ -267,4 +239,4 @@ with gr.Blocks(title="Niche GPT", css=CSS) as demo:
     clear_btn.click(lambda: ([], ""), None, [chatbot, msg])
 
 if __name__ == "__main__":
-    demo.launch(server_name="0.0.0.0", server_port=7860, share=False, inbrowser=True)
+    demo.launch(server_name="0.0.0.0", server_port=PORT, share=False)
