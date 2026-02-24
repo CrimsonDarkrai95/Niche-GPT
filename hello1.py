@@ -10,6 +10,7 @@ from dotenv import load_dotenv
 from groq import Groq
 from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import HuggingFaceEmbeddings
+from chromadb.utils import embedding_functions
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.documents import Document
 
@@ -75,7 +76,16 @@ def load_documents(folder: str) -> list:
 # VECTOR STORE
 # ─────────────────────────────────────────────
 print("\n⏳ Loading embedding model…")
-embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+ef = embedding_functions.ONNXMiniLM_L6_V2()
+
+class ChromaEmbeddings:
+    """Wrapper to make ChromaDB embeddings work with LangChain."""
+    def embed_documents(self, texts):
+        return ef(texts)
+    def embed_query(self, text):
+        return ef([text])[0]
+
+embeddings = ChromaEmbeddings()
 docs = load_documents(DATA_FOLDER)
 
 if docs:
