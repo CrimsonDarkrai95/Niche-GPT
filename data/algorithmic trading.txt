@@ -1,0 +1,39 @@
+How do algorithmic trading and high-frequency trading strategies affect liquidity in the markets?
+
+Key takeaways:
+
+Algorithmic trading and high-frequency trading improve market liquidity as a result of competitive forces and frequently updated spreads.
+Economic downturns could impact the market depth negatively as a direct consequence of frequent cancellations and refilling of new spreads.
+A moniker for computer-assisted trading, algorithmic trading essentially involves programming a computer to follow pre-defined instructions to trade. The objective being, to reproduce profits at a speed and frequency that supersede human ability. There are certain key parameters, such as timing, price quantity or any mathematical model, that make up algorithmic trading.
+
+A simple example of algorithmic-based trading could be buying shares of a stock XYZ, whose 50-day moving average is higher than its 200-day moving average. This is based on the intuition that the stock is projected to go higher, thus producing opportunities for profitability. Conversely, sell half or more shares of a stock whose 50-day moving average falls below its 100-day moving average.
+
+High-frequency trading (HFT) is a subset of algorithmic trading (AT). The key difference here is the sheer execution and volume of trades take place at a much higher rate. Executing this trading strategy requires superior computing power, which only powerful computers possess. The timing of these trades is a matter of fractions of a second. A key benefit of such an advanced trading strategy is that, apart from high volume and reduced time, market movements and arbitrage opportunities are rapidly identified. High-frequency trading, or HFT, is primarily employed by large institutions such as banks and institutional investors.
+
+While all high-frequency trading is a form of algorithmic trading, not all algorithmic trading is high-frequency trading. The HFT strategy distinguishes itself from algorithmic trading through a focus on speed, frequency and micro-profitization. For example, a market-making program that submits and cancels thousands of orders per second is categorized as HFT trading.
+
+Algorithmic trading and market liquidity:
+
+Market liquidity can be defined as the ability of the market to absorb trades with minimal impact on price. An increasing number of studies (listed below) have found that the widespread usage of both algorithmic trading and high-frequency trading have seemingly enhanced market liquidity, under normal market conditions. Past research highlights this phenomenon on dimensions such as bid-ask spread, market depth and order book dynamics.
+
+Bid-ask spreads: Following the New York Stock Exchange’s automated quote dissemination in 2003, Henderschott, Jones and Menkveld conducted a causal analysis on liquidity. They found that algorithmic trading narrowed spreads, caused reduction in price-related discoveries and adverse selection. This leads them to conclude that such an automated strategy improves liquidity and enhances price informativeness. (The intuition here is: A narrow spread is indicative of high levels of market activity, increased competition and reduced transaction costs. Thus, orders fill up rather quickly.) Another research conducted by NASDAQ revealed that high-frequency trading also had a similar impact (thinning of spreads). This also attracted higher trading volume.
+
+Market depth and order book dynamics: Under normal economic circumstances, both algorithmic trading and high-frequency trading tend to increase market depth by constantly replenishing orders. Empirical data from  Deutsche Börse DAX has shown that this has also led to the best spreads being posted. Thereby supplying liquidity when needed. However, in times of economic downturn, the constant cancelling and updating of new spreads by HFT algorithms results in reduced depth. This is because these algorithms simultaneously withdraw trades. Thus, highlighting the fast-moving nature of liquidity.
+
+
+
+Figure: 1
+
+The graph above depicts how the average daily volume increased as both spreads and retail commissions decreased. *Indicative of improved liquidity.
+
+Global impact of algorithmic trading and its subset trading strategies on liquidity and volume:
+
+While regional market structure and regulations explain some variation in the liquidity dimension, empirical evidence also uncovers common trends. Since the United States was an early adopter of electronic trading through NASDAQ and NYSE, the country has experienced a massive surge in algorithmic and high-frequency trading. According to Henderschott, Jones and Menkveld (https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2010.01624.x) the spreads for S&P 500 stocks reportedly fell to roughly 0.01 percent of the price. Furthermore, large orders could also be executed in slices without significantly impacting price movements. Thus indicating enhanced market depth.
+
+The proliferation of these trading strategies in the 2000s can be attributed to decimalization (2001) and Regulation NMS (2007) in the United States. Decimalization implied that stocks could priced as small as 1 cent (NYSE). Overall, barring economic downturns, AT and HFT have resulted in substantial liquidity to equities and other asset classes in the United States. Regulations have primarily focused on curbing the downside risk through monitoring and safeguards.
+
+In a similar fashion, following the Markets in Financial Instruments directive of 2007, the EU has seen the expansion of HFT firms into its markets. Largely mirroring its impact on liquidity in the US markets, research also highlights the predatory effect of competing HFT firms in terms of price. The European Central Bank reports that this has resulted in a deterioration of market liquidity and a rise in short-term volatility.  While the paper by the ECB focused on the effects of competition on market quality, as previously mentioned, the broader effects of HFT and algorithmic trading have been a net positive in Europe. For instance, the spreads are often 0.1 percent or less, and much like the US, regulatory vigilance is prevalent.
+
+Trading in emerging markets in general can incur relatively higher transaction costs and lower liquidity. A reason for this is low levels of adoption; furthermore, the composition of participants is mainly retail investors. Consequently, sudden shifts in AT/HFT can cause large changes in price.  Empirical evidence shows that countries like India, Brazil and China have seemingly adopted AT and HFT, however they continue to maintain vigilance and control the speed of trades being executed in order to maintain market confidence. For instance, in India, following the National Stock Exchange’s decision to allow algorithmic trading in 2010, the market has experienced approximately 60 percent of trades executed by algorithms as of 2024. Despite concerns about the fairness given the nonhuman participants in such trading strategies, the markets have been found to be increasingly efficient as a result. Furthermore, the Securities and Exchange Board of India has mandated the implementation of a kill-switch mechanism to contain errant trades and malfunctioning algorithms. Thus ensuring market stability.
+
+In conclusion, the common theme to be underlined throughout this analysis is that barring economic downturns, algorithmic trading and its sub-types generally make the markets more liquid and provide competitiveness, resulting in smaller spreads. Lastly, regulators appear to have control and monitoring mechanisms in place to contain historical events such as the flash crash (of the 2010’s). As a result, the benefits to the market and the control system in place make algorithmic trading an exciting avenue for both institutional and retail investors.

@@ -1,0 +1,31 @@
+Research areas
+The Stochastic Finance Group conducts research on foundational issues in mathematical finance and is also heavily involved in the development of the necessary mathematical tools. A sample of current research projects is outlined below.
+
+For more detailed information, please visit the individual websites of the members of the Stochastic Finance Group.
+
+Model uncertainty
+The parameters of any model can never be estimated with perfect accuracy. Recently, this model uncertainty has been taken into account explicitly. For example, Nutz and Soner (2012) study hedging in the presence of uncertainty about the market's volatility. external pageDolinsky and Soner (2013) even look for robust option hedges that are effective for all continuous paths of the underlying asset.
+
+Robust calibration and estimation of stochastic processes
+Fitting models to observations is one of the key steps in mathematical modelling. In finance, one typically either calibrates a given model to reproduce observed market prices or estimates the model's parameters from a historical time series. external pageCuchiero and Teichmann (2013) present the concept of robust calibration, where time series data and derivatives prices are used simultaneously for model selection. For this purpose a Fourier-analysis-based technique is applied to estimate model parameters which are invariant under equivalent measure changes.
+
+Market frictions
+In financial markets with frictions such as transaction costs or the price impact of large orders, challenging difficulties arise and many tenets of classical financial theory need to be revisited. As most of the corresponding models are intractable, our research concentrates on determining practically relevant corrections for small frictions. Soner and Touzi (2012), external pagePossamai, Soner, and Touzi (2013), external pageKallsen and Muhle-Karbe (2012), and external pageKallsen and Muhle-Karbe (2015) show that these corrections can be readily computed from the solution to the corresponding frictionless problem even in rather general settings.
+
+Term-structure problems
+In financial markets, term structures of prices are a common feature. These are liquid markets of contracts which only differ in their maturity date ("term"). For instance, default-free zero coupon bond prices, which correspond to stylized versions of default-free loans, have different maturities according to the market demand and constitute the term structure of bond prices or yields. Recently, geometric insights in term structure problems, such as formulated in external pageFilipovic and Teichmann (2002), have been applied for new ideas in prediction modelling approaches; see for example external pageTeichmann and Wüthrich (2012).
+
+Arbitrage theory
+The absence of arbitrage, i.e. of riskless profits, is the basic paradigm of modern financial theory. Current work of Choulli and Schweizer (2011) aims at understanding in more detail how quantitative aspects of absence of arbitrage change when one changes the reference measure. This is motivated by the problem of understanding how optimal portfolio choice depends on the time horizon of the underlying model.
+
+Numerical methods
+Beyond simple toy models, numerical methods are needed to evaluate options prices, optimal trading strategies, and risk measures efficiently. Cubature and splitting methods have been analyzed for the numerical evaluation of term structure SPDEs in external pageDörsek and Teichmann (2011). external pageAkyildirim, Dolinsky and Soner (2012) introduce a new numerical scheme based on two dimensional recombinant binomial trees to approximate stochastic volatility models and price American and European options including the standard put and calls, barrier, lookback, and Asian-type payoffs.
+
+Hedging in incomplete markets
+In the classical Black-Scholes model, any option payoff can be replicated by dynamic trading in the underlying. In contrast, incomplete markets acknowledge that like in reality, the corresponding uncertainty cannot be hedged completely, thereby calling for an optimal tradeoff between risk and return. This has been studied for mean-variance preferences in Jeanblanc, Mania, Santacroce and Schweizer (2012) as well as Czichowsky and Schweizer (2013), and for von Neumann-Morgenstern utility functions in external pageKallsen, Muhle-Karbe, and Vierthauer (2012).
+
+Affine processes
+Affine processes are an important class of numerically tractable, flexible models in mathematical finance: pricing, hedging and trading strategies can be easily evaluated within this class through Fourier methods, and the class is rich enough to cope with complicated stylized facts of multivariate time series and derivative price structures. Recent research includes the classification of covariance matrix-valued affine processes in external pageCuchiero, Filipovic, Mayerhofer and Teichmann (2011) or fundamental regularity questions as in external pageCuchiero and Teichmann (2012).
+
+Backward stochastic differential equations
+Like their deterministic counterparts in classical analysis, stochastic differential equations (SDEs) describe the dynamics of a system as a function of its current state. Whereas regular SDEs propagate an initial condition forward in time, backward SDEs postulate a given terminal condition. Equations of this type play a key role in applications such as probabilistic numerical methods for partial differential equations, stochastic control, stochastic differential games, theoretical economics, and mathematical finance. In this context, Frei, Malamud, and Schweizer (2011) show how to bound the solutions of BSDEs by solutions of other BSDEs which are easier to solve. Motivated by model uncertainty, Soner, Touzi, and Zhang (2012) develop an existence and uniqueness theory for BSDEs with respect to a whole set of non-equivalent probability measures.
