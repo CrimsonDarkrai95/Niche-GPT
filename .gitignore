@@ -1,17 +1,3 @@
-groq_api.env
-venv/
-myenv/
-chroma_store/
-__pycache__/
-*.pyc
-.DS_Store
-.gradio/
-tempCodeRunnerFile.*
-background.jpeg
-hello.py
-main.py
-windgpt testing.py
-crc code sim.py
-crc code sim 1.py
-import tkinter as tk.py
-test.html
+HFkey.env 
+"github api key.txt" 
+groq_api.env 
