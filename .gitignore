@@ -1,3 +1,18 @@
 HFkey.env 
 "github api key.txt" 
 groq_api.env 
+venv/
+.gradio/
+chroma_store/
+Niche-GPT/
+background.jpeg
+crc code sim 1.py
+crc code sim.py
+deploy.yml
+hello.py
+main.py
+tempCodeRunnerFile.cpp
+tempCodeRunnerFile.python
+test.html
+windgpt testing.py
+import tkinter as tk.py
