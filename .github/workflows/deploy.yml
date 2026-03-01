@@ -1,43 +1,32 @@
 name: Deploy to HuggingFace Spaces
-
 on:
   push:
     branches:
       - main
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
     environment:
       name: HuggingFace
       url: https://huggingface.co/spaces/Emet018/Niche-GPT
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
           lfs: true
-
       - name: Push to HuggingFace Spaces (exclude data folder)
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
-
-          # Clone HF Space separately
           git clone https://Emet018:$HF_TOKEN@huggingface.co/spaces/Emet018/Niche-GPT hf_space
-
-          # Copy only code files, not data folder
           cp app.py hf_space/
           cp requirements.txt hf_space/
-          cp README.md hf_space/
-
-          # Commit and push to HF
           cd hf_space
           git config user.email "action@github.com"
           git config user.name "GitHub Action"
-          git add app.py requirements.txt README.md
+          git add app.py requirements.txt
           git diff --staged --quiet || git commit -m "Deploy from GitHub: ${{ github.sha }}"
           git push origin main
