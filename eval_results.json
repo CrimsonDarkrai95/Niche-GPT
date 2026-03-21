@@ -1,0 +1,24 @@
+{
+  "precision_at_3": {
+    "tfidf": 0.1,
+    "embedding": 0.1
+  },
+  "recall_at_3": {
+    "tfidf": 0.183,
+    "embedding": 0.183
+  },
+  "mrr": {
+    "tfidf": 0.25,
+    "embedding": 0.25
+  },
+  "latency_ms": {
+    "embed_avg": 73.5,
+    "retrieval_avg": 80.5,
+    "gen_avg": 496.4
+  },
+  "dataset": {
+    "pdf": "C:\\Users\\GOVIND\\niche_chatgpt\\data\\5085589.pdf",
+    "chunks": 274,
+    "queries": 10
+  }
+}
